@@ -1,0 +1,19 @@
+{
+  "name": "nikolozch-website",
+  "version": "1.0.0",
+  "description": "Cloned version of nikolozch.com",
+  "scripts": {
+    "dev": "live-server --port=3000 --host=localhost",
+    "start": "serve -l 3000",
+    "serve": "serve -l 3000",
+    "preview": "http-server -p 3000"
+  },
+  "keywords": ["website", "blog"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.0",
+    "http-server": "^14.1.1"
+  }
+}
