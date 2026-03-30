@@ -1,19 +1,29 @@
 {
   "name": "nikolozch-website",
   "version": "1.0.0",
-  "description": "Cloned version of nikolozch.com",
+  "private": true,
+  "description": "Nikoloz Chitashvili's Personal Space on the Internet - Tech writeups, thoughts and ideas",
+  "type": "module",
   "scripts": {
-    "dev": "live-server --port=3000 --host=localhost",
-    "start": "serve -l 3000",
-    "serve": "serve -l 3000",
-    "preview": "http-server -p 3000"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.jsx --fix"
   },
-  "keywords": ["website", "blog"],
-  "author": "",
+  "keywords": [
+    "blog",
+    "personal",
+    "portfolio",
+    "vue"
+  ],
+  "author": "Nikoloz Chitashvili",
   "license": "ISC",
   "devDependencies": {
-    "live-server": "^1.2.2",
-    "serve": "^14.2.0",
-    "http-server": "^14.1.1"
+    "@vitejs/plugin-vue": "^5.0.0",
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "vue": "^3.4.0",
+    "vue-router": "^4.2.0"
   }
 }
